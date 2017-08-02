@@ -1,7 +1,7 @@
-$.lang.register('top5.default', 'Top $1 $2: $3');
-$.lang.register('top5.points-disabled', 'Points are disabled.');
-$.lang.register('top5.amount.points.usage', 'Usage: !topamount (amount) - Set how many viewers will appear in the !top points list.');
-$.lang.register('top5.amount.max', 'The max amount of users is 15.');
-$.lang.register('top5.amount.points.set', '$1 users will now show in the !top command.');
-$.lang.register('top5.amount.time.usage', 'Usage: !toptimeamount (amount) - Set how many viewers will appear in the !toptime list.');
-$.lang.register('top5.amount.time.set', '$1 viwers will now show in the !toptime command.');
+$.lang.register('top5.default', 'Топ: $1 $2: $3');
+$.lang.register('top5.points-disabled', 'Очки сейчас отключены!');
+$.lang.register('top5.amount.points.usage', 'Используйте: !topamount (Количество) - Укажите, сколько зрителей будет появляться в !top - списке лучших!');
+$.lang.register('top5.amount.max', 'Максимальное количество отображаемых в топе зрителей 15.');
+$.lang.register('top5.amount.points.set', 'Пользователи (категории): $1 теперь будут отображаться в !top списке.');
+$.lang.register('top5.amount.time.usage', 'Используйте: !toptimeamount (amount) - Укажите, сколько зрителей будет появляться в !toptime списке!');
+$.lang.register('top5.amount.time.set', 'Пользователи (категории): $1 теперь будут отображаться в !toptime списке.');

@@ -1,4 +1,4 @@
-$.lang.register('namechange.default', 'Usage: !namechange [old name] [new name]');
-$.lang.register('namechange.updating', 'Updating name $1 to $2 in all the database tables. This may take time.');
-$.lang.register('namechange.success', 'Username $1 has been updated to $2 in $3 tables!');
-$.lang.register('namechange.notfound', 'Username $1 was not found in any tables.');
+$.lang.register('namechange.default', 'Используйте: !namechange [Текущее имя] [Новое имя]');
+$.lang.register('namechange.updating', 'Имя обновляется...! Было: $1 Станет: $2 по всей Базе Данных! Это может занять время!');
+$.lang.register('namechange.success', 'Имя $1 было обновлено на $2 в $3 таблицах Базы Данных!');
+$.lang.register('namechange.notfound', 'Имя $1 не найдено в какой-либо таблице Базы Данных!');
