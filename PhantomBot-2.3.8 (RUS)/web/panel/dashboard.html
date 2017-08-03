@@ -22,7 +22,7 @@
 
 <!-- Accordion object.  Each section is separated by an <h3 /> header and the content is to be enclosed in <div />.  -->
 <div id="dashboardAccordion">
-    <h3>Twitch</h3>
+    <h3>Ваш Twitch канал</h3>
     <div>
         <table>
             <tr style="background-color: transparent">
@@ -36,8 +36,8 @@
         <br>
         <form role="form">
             <div class="form-group" onkeypress="return event.keyCode != 13">
-                <label for="streamTitle">Stream Title</label>
-                <button type="button" class="btn btn-primary inline pull-right" onclick="$.setStreamTitle()">Update</button>
+                <label for="streamTitle">Название Трансляции</label>
+                <button type="button" class="btn btn-primary inline pull-right" onclick="$.setStreamTitle()">Обновить</button>
                 <input type="text" class="form-control" id="streamTitleInput" placeholder="Stream Title" />
             </div>
         </form>
@@ -45,33 +45,33 @@
         
         <form role="form">
             <div class="form-group" onkeypress="return event.keyCode != 13">
-                <label for="gameTitle">Game Title</label>
-                <button type="button" class="btn btn-primary inline pull-right" onclick="$.setGameTitle()">Update</button>
+                <label for="gameTitle">Название Игры</label>
+                <button type="button" class="btn btn-primary inline pull-right" onclick="$.setGameTitle()">Обновить</button>
                 <input type="text" class="form-control" id="gameTitleInput" placeholder="Game Title" />
             </div>
         </form>
 
         <button type="button" class="btn btn-alert inline pull-left" onclick="$.disconnect()" 
-        data-toggle="tooltip" title="NOTE: This will remove the bot from your channel, you will have to manually rejoin it.">Remove</button>
+        data-toggle="tooltip" title="Это отключит Бота от вашего канала.">Отключить бота</button>
 
         <button type="button" class="btn btn-warning inline pull-left" onclick="$.chatReconnect()" 
-        data-toggle="tooltip" title="Reconnect PhantomBot to your Twitch channel. This does not reconnect if the 'Remove' action was performed.">Reconnect</button>
+        data-toggle="tooltip" title="Переподключает Бота к вашему каналу. Если Бота все еще нет, то Отключите его и Переподключите снова.">Переподключить бота</button>
 
-        <button type="button" class="btn btn-primary inline pull-left" onclick="$.toggleTwitchChat()">Toggle Chat</button>
+        <button type="button" class="btn btn-primary inline pull-right" onclick="$.toggleTwitchChat()">Вкл/Выкл Чат (Справа)</button>
     </div>
 
-    <h3>Chat Configuration and Statistics</h3>
+    <h3>Настройка Чата и Статистика</h3>
     <div>
         <div>
-            <strong>Chat Configuration Toggles</strong><br><br>
-            <button type="button" class="btn btn-primary inline" onclick="$.toggleCommand('pausecommands')">Command Pause</button>
-            <button type="button" class="btn btn-primary inline" onclick="$.toggleCommand('togglewhispermode')">Whisper Mode</button>
-            <button type="button" class="btn btn-primary inline" onclick="$.toggleCommand('toggleme')">Action (/me) Mode</button>
-            <button type="button" class="btn btn-primary inline" onclick="$.toggleCommand('mute')">Mute Mode</button>
+            <strong>Настройка Чата (Вкл/Выкл)</strong><br><br>
+            <button type="button" class="btn btn-primary inline" onclick="$.toggleCommand('pausecommands')">Вкл/Выкл выполнение команд</button>
+            <button type="button" class="btn btn-primary inline" onclick="$.toggleCommand('togglewhispermode')">Режим Whisper (в ЛС)</button>
+            <button type="button" class="btn btn-primary inline" onclick="$.toggleCommand('toggleme')">Режим цветного ответа (/me)</button>
+            <button type="button" class="btn btn-primary inline" onclick="$.toggleCommand('mute')">Тихий режим</button>
         </div>
         <br>
 
-        <div><strong>Chat Statistics</strong><br><br></div>
+        <div><strong>Статистика Чата</strong><br><br></div>
         <div id="panelStatsEnabled" />
         <table>
             <tr style="background-color: transparent">
@@ -103,24 +103,24 @@
         </table>
     </div>
 
-    <h3>Logging Configuration</h3>
+    <h3>Настройка Откладки</h3>
     <div>
         <table>
             <tr class="textList">
-                <td>Event logging</td>
+                <td>Логгировать "События"</td>
                 <td style="width: 25px"><div id="logEvent" /></td>
                 <td style="width: 25px">
-                    <div data-toggle="tooltip" title="Toggle" class="button"
+                    <div data-toggle="tooltip" title="Вкл/Выкл" class="button"
                          onclick="$.toggleLog('logEvent');"><i class="fa fa-refresh" />
                      </div>
                     <div>
                 </td>
             </tr>
             <tr class="textlist">
-                <td>Error logging</td>
+                <td>Логгировать "Ошибки"</td>
                 <td style="width: 25px"><div id="logError" /></td>
                 <td style="width: 25px">
-                    <div data-toggle="tooltip" title="Toggle" class="button"
+                    <div data-toggle="tooltip" title="Вкл/Выкл" class="button"
                          onclick="$.toggleLog('logError');"><i class="fa fa-refresh" />
                      </div>
                      </div>
@@ -128,10 +128,10 @@
                     </td>
                 </tr>
                 <tr class="textList">
-                    <td>File & chat logging</td>
+                    <td>Логгировать Файл и Чат</td>
                     <td style="width: 25px"><div id="logFile" /></td>
                     <td style="width: 25px">
-                        <div data-toggle="tooltip" title="Toggle" class="button"
+                        <div data-toggle="tooltip" title="Вкл/Выкл" class="button"
                              onclick="$.toggleLog('logFile');"><i class="fa fa-refresh" />
                          </div>
                     </td>
@@ -141,56 +141,55 @@
         <br>
         <form role="form">
              <div class="form-group" onkeypress="return event.keyCode != 13">
-                <label for="logRotate">Number of Days to Keep Logs</label>
-                <button type="button" class="btn btn-primary pull-right" onclick="$.setLogRotate()">Submit</button>
+                <label for="logRotate">Сколько дней хранить логи</label>
+                <button type="button" class="btn btn-primary pull-right" onclick="$.setLogRotate()">Подтвердить</button>
                 <input type="number" min="0" class="form-control" id="logRotateInput" placeholder="Days" 
-                       data-toggle="tooltip" title="Days to keep logs, 0 means do not delete logs."/>
+                       data-toggle="tooltip" title="х - удаляет логи через х Дней. 0 - не удалять логи."/>
             </div>
         </form>
     </div>
 
-    <h3>Twitch Modules</h3>
+    <h3>Twitch Модули</h3>
     <div>
         <div id="modulesList" style="height: 300px; overflow: auto;" />
     </div>
 
-    <h3>Discord Modules</h3>
+    <h3>Discord Модули</h3>
 
     <div>
-        <i>These are modules for our discord integration. If you do not have your bot connected to discord the enable buttons will not work and the modules
-            may not show up.</i>
+        <i>Модули для Бота интегрированного на ваш сервер Discord! Если вы не планируете подключать Бота к Discord, пожалуйста отключите данный модуль!</i>
         <div id="discordModulesList" style="height: 300px; overflow: auto;" />
     </div>
 
 
-    <h3>Highlights</h3>
+    <h3>Клипы</h3>
     <div>
         <div id="_highlightsPanelDisabled" />
         <div id="_highlightsPanel">
-            Make a note of an event in the broadcast to make creating highlights in Twitch easier later.
+            Запишите событие для трансляции, чтобы упростить создание клипа на Twitch позже.
             <br><br>
             <form role="form">
                  <div class="form-group" onkeypress="return event.keyCode != 13">
-                    <label for="highlight">Create Highlight</label>
-                    <button type="button" class="btn btn-primary pull-right" onclick="$.setHighlight()">Submit</button>
+                    <label for="highlight">Создать клип</label>
+                    <button type="button" class="btn btn-primary pull-right" onclick="$.setHighlight()">Подтвердить</button>
                     <input type="text" class="form-control" id="highlightInput" placeholder="Game Highlight" />
                 </div>
             </form>
             <br>
             
-            <button type="button" class="btn btn-danger pull-right" onclick="$.clearHighlights()">Clear Highlights</button>
-            <strong>Current Highlights</strong><br>
+            <button type="button" class="btn btn-danger pull-right" onclick="$.clearHighlights()">Удалить Клипы</button>
+            <strong>Текущие Клипы</strong><br>
             <span id="showHighlights" />
         </div>
     </div>
     
-    <h3>Death Counter</h3>
+    <h3>Счетчик Смертей</h3>
     <div>
         <div id="_deathCtrPanelDisabled" />
         <div id="_deathCtrPanel">
             <table>
                 <tr class="textList" style="vertical-align: middle">
-                    <td>Deaths: <span id="deathCounterValue">Fetching Game...</span></td>
+                    <td>Смертей: <span id="deathCounterValue">Считываем игру...</span></td>
                     <td style="width: 30px">
                         <button type="button" class="btn btn-primary" onclick="$.adjustDeathCounter('add')"><i class="fa fa-plus fa-1x" /></button>
                     </td>
@@ -205,7 +204,7 @@
         </div>
     </div>
 
-    <h3>Multi-Link</h3>
+    <h3>Мульти-ссылки (Мульти-Стримы)</h3>
     <div>
         <div id="_multiLinkPanelDisabled" />
         <div id="_multiLinkPanel">

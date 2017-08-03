@@ -23,7 +23,7 @@
     <head>
         <meta charset="utf-8">
 
-        <title>PhantomBot Control Panel</title>
+        <title>Hitagi Bot Панель управления</title>
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
         <link rel="stylesheet" href="panel/js/jquery-ui/jquery-ui.min.css">
@@ -56,21 +56,25 @@
         <div class="header">
             <img id="logo" src="panel/images/logo.png"/>
             <span id="header-right">
-                <script>
+                <!--
+				<script>
                     if (window.location.port == getPanelPort() + 1) {
-                        document.write('<i data-toggle="tooltip" data-placement="left" title="Next release port ' + (window.location.port) + ' will be decommissioned, please use ' + (window.location.port - 5) + '." class="fa fa-exclamation-triangle fa-lg" aria-hidden="true"></i>&nbsp;&nbsp;');
+                        document.write('<i data-toggle="tooltip" data-placement="left" title="В новой версии порт: ' + (window.location.port) + ' уже не будет использоваться, пожалуйста используте порт: ' + (window.location.port - 5) + '." class="fa fa-exclamation-triangle fa-lg" aria-hidden="true"></i>&nbsp;&nbsp;');
                     }
                 </script>
-                <i data-toggle="tooltip" data-placement="left" title="Refresh Current Panel Data" class="fa fa-refresh fa-lg" aria-hidden="true" onclick="performCurrentPanelRefresh()"></i>
+				-->
+                <i data-toggle="tooltip" data-placement="left" title="Перезагрузить панель" class="fa fa-refresh fa-lg" aria-hidden="true" onclick="performCurrentPanelRefresh()"></i>
             </span>
             <div id="newPanelAlert" class="alert" style="display:none"></div>
         </div>
              
-        <span id="panelLoader"><i style="color: purple" class="fa fa-spinner fa-spin fa-5x"></i><br><br>Loading PhantomBot Control Panel</span>
+        <span id="panelLoader"><i style="color: purple" class="fa fa-spinner fa-spin fa-5x"></i><br><br>Загрузка...</span>
 
-        <div id="newVersionDialog" title="New Version Available" style="font-size: 90%"> </div>
+		<!--
+        <div id="newVersionDialog" title="Доступна новая версия бота" style="font-size: 90%"> </div>
         <script>$("#newVersionDialog").dialog({ autoOpen: false, height: 200, width: 600 });</script>
-
+		-->
+		
         <div>
             <table class="panelStatus">
                 <tr>
@@ -91,27 +95,27 @@
 
         <div id="tabs" style="display:none">
             <ul>
-                <li> <a href="#dashboard">Dashboard</a> </li>
-                <li> <a href="#commands">Commands</a> </li>
-                <li> <a href="#moderation">Moderation</a> </li>
-                <li> <a href="#time">Time</a> </li>
-                <li> <a href="#points">Points</a> </li>
-                <li> <a href="#viewers">Permissions</a> </li>
-                <li> <a href="#ranks">Ranks</a> </li>
-                <li> <a href="#greetings">Alerts</a> </li>
-                <li> <a href="#donations">Donations</a> </li>
-                <li> <a href="#notices">Notices</a> </li>
-                <li> <a href="#quotes">Quotes</a> </li>
-                <li> <a href="#keywords">Keywords</a> </li>
-                <li> <a href="#poll">Polls</a> </li>
-                <li> <a href="#hostraid">Hosts & Raids</a> </li>
-                <li> <a href="#gambling">Giveaways</a> </li>
-                <li> <a href="#games">Games</a> </li>
-                <li> <a href="#queue">Queue</a> </li>
+                <li> <a href="#dashboard">Панель Управления</a> </li>
+                <li> <a href="#commands">Команды</a> </li>
+                <li> <a href="#moderation">Авто-Модерация</a> </li>
+                <li> <a href="#time">Время</a> </li>
+                <li> <a href="#points">Очки</a> </li>
+                <li> <a href="#viewers">Уровни Доступа</a> </li>
+                <li> <a href="#ranks">Ранги</a> </li>
+                <li> <a href="#greetings">Оповещения</a> </li>
+                <li> <a href="#donations">Донаты</a> </li>
+                <li> <a href="#notices">Уведомления</a> </li>
+                <li> <a href="#quotes">Цитаты</a> </li>
+                <li> <a href="#keywords">Ключевые слова</a> </li>
+                <li> <a href="#poll">Опросы</a> </li>
+                <li> <a href="#hostraid">Хосты & Рейды</a> </li>
+                <li> <a href="#gambling">Раздачи</a> </li>
+                <li> <a href="#games">Мини-Игры</a> </li>
+                <li> <a href="#queue">Очереди</a> </li>
                 <li> <a href="#twitter">Twitter</a> </li>
                 <li> <a href="#discord">Discord</a> </li>
-                <li> <a href="#audio">Audio</a> </li>
-                <li> <a href="#help">Information</a> </li>
+                <li> <a href="#audio">Музыка</a> </li>
+                <li> <a href="#help">Общая информация</a> </li>
             </ul>
 
             <div role="tabpanel" class="tab-pane active" id="dashboard">
@@ -249,7 +253,7 @@
         <br>
         
         <div id="copyright">
-            Control Panel by: 
+            Панель управления от: 
             <a href="https://phantombot.tv">phantombot.tv</a>
         </div>
 
