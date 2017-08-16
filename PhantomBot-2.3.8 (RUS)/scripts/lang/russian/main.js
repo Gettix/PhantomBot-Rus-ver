@@ -271,13 +271,16 @@ $.lang.register('init.cmsgset', 'Оповещение о Подключении 
 $.lang.register('init.module.404', 'Такой модуль не существует или не загружен!');
 $.lang.register('init.module.check.disabled', 'Модуль $1 сейчас Отключен!');
 $.lang.register('init.module.check.enabled', 'Модуль $1 сейчас Включен!');
-$.lang.register('init.module.auto-disabled', 'Модули, связанные с pointSystem были отключены. Смотрите логи.');
+$.lang.register('init.module.auto-disabled', 'Модули, связанные с Системой Очков (Point System) были отключены.');
 $.lang.register('init.module.disabled', 'Модуль "$1" - Отключен!');
 $.lang.register('init.module.enabled', 'Модуль "$1" - Включен!');
 $.lang.register('init.module.error', 'Модуль "$1" Включился, но не смог проинициализироваться! Проверьте логи на ошибки!');
-$.lang.register('init.module.list', 'Модули (* которые отключены): $1');
+$.lang.register('init.module.list', 'Модули: $1');
 $.lang.register('init.module.list.total', 'Всего страниц: $1');
-$.lang.register('init.module.usage', 'Используйте: !module list, !module [Параметр: enable|disable|delete] [Имя модуля], !module [list] [Номер страницы]');
+$.lang.register('init.module.usage', 'Используйте: !module [list / enabled / delete / status]');
+$.lang.register('init.module.usage.disable', 'Используйте: !module disable [Путь до модуля]');
+$.lang.register('init.module.usage.status', 'Используйте: !module status [Путь до модуля]');
+$.lang.register('init.module.usage.enable', 'Используйте: !module enable [Путь до модуля]');
 $.lang.register('init.module.delete.usage', 'Используйте: !module delete [Имя модуля] чтобы удалить модуль из Базы Данных! Использовать для модулей удаленых с диска!');
 $.lang.register('init.module.delete.success', 'Модуль успешно удален из Базы Данных: $1');
 $.lang.register('init.module.delete.404', 'Модуль не найден в Базе Данных: $1');
@@ -298,6 +301,8 @@ $.lang.register('init.mod.toggle.on.pay', 'moderators+ должны платит
 $.lang.register('init.mod.toggle.off.pay', 'moderators+ больше не платят за использование Команд.');
 $.lang.register('init.mod.toggle.perm.msg.off', 'Сообщение об Уровнях Доступа - Выключено!');
 $.lang.register('init.mod.toggle.perm.msg.on', 'Сообщение об Уровнях Доступа - Включено!');
+$.lang.register('init.mod.toggle.price.msg.off', 'Сообщения о Ценах - Выключено!');
+$.lang.register('init.mod.toggle.price.msg.on', 'Сообщения о Ценах - Включено!');
 $.lang.register('init.toggle.cooldown.msg.on', 'Сообщение о Задержке команд - Включено!');
 $.lang.register('init.toggle.cooldown.msg.off', 'Сообщение о Задержке команд - Выключено!');
 $.lang.register('init.cooldown.msg', 'Команда !$1 все еще в Задержке. ($2 секунд)');
