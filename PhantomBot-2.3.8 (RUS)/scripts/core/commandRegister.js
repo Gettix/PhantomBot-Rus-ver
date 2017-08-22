@@ -175,7 +175,7 @@
      * @returns {boolean}
      */
     function commandExists(command) {
-        return (commands[command] ? true : false);
+        return commands[command] !== undefined;
     };
 
     /**
@@ -184,7 +184,7 @@
      * @param {string} command
      */
     function aliasExists(alias) {
-        return aliases[alias];
+        return aliases[alias] !== undefined;
     };
 
     /**
@@ -324,8 +324,8 @@
             commands[command].subcommands[subcommand].groupId = groupId;
         }
     };
-	
-	/**
+
+    /**
      * @function getSubCommandFromArguments
      * @export $
      * @param command
@@ -335,8 +335,10 @@
         if (!commandExists(command) || args[0] === undefined) {
             return '';
         } else {
-            if (subCommandExists(command, args[0].toLowerCase())) {
-                return args[0].toLowerCase();
+            var subCommand = args[0].toLowerCase();
+            
+            if (subCommandExists(command, subCommand)) {
+                return subCommand;
             }
             return '';
         }
@@ -359,5 +361,5 @@
     $.aliasExists = aliasExists;
     $.registerChatAlias = registerChatAlias;
     $.tempUnRegisterChatCommand = tempUnRegisterChatCommand;
-	$.getSubCommandFromArguments = getSubCommandFromArguments;
+    $.getSubCommandFromArguments = getSubCommandFromArguments;
 })();

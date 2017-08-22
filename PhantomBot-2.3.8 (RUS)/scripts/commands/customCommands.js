@@ -5,7 +5,9 @@
         reCustomAPITextTag = new RegExp(/{([\w\W]+)}/),
         reCommandTag = new RegExp(/\(command\s([\w]+)\)/),
         tagCheck = new RegExp(/\(age\)|\(sender\)|\(@sender\)|\(baresender\)|\(random\)|\(1\)|\(count\)|\(pointname\)|\(currenttime|\(price\)|\(#|\(uptime\)|\(follows\)|\(game\)|\(status\)|\(touser\)|\(echo\)|\(alert [,.\w]+\)|\(readfile|\(1=|\(countdown=|\(downtime\)|\(paycom\)|\(onlineonly\)|\(offlineonly\)|\(code=|\(followage\)|\(gameinfo\)|\(titleinfo\)|\(gameonly=|\(playtime\)|\(gamesplayed\)|\(pointtouser\)|\(lasttip\)|\(writefile .+\)|\(readfilerand|\(commandcostlist\)|\(playsound |\(customapi |\(customapijson /),
-        customCommands = [];
+        customCommands = [],
+        ScriptEventManager = Packages.tv.phantombot.script.ScriptEventManager,
+        CommandEvent = Packages.tv.phantombot.event.command.CommandEvent;
 
     /*
      * @function getCustomAPIValue
@@ -17,24 +19,21 @@
         return $.customAPI.get(url).content;
     }
 
-	/*
-	   * @function runCommand
-	   *
-	   * @param {string} username
-	   * @param {string} command
-	   * @param {string} args
-	*/
-	function runCommand(username, command, args, tags) {
-		var ScriptEventManager = Packages.tv.phantombot.script.ScriptEventManager,
-		CommandEvent = Packages.tv.phantombot.event.command.CommandEvent;
+    /*
+     * @function runCommand
+     *
+     * @param {string} username
+     * @param {string} command
+     * @param {string} args
+     */
+    function runCommand(username, command, args, tags) {
+        if (tags !== undefined) {
+            ScriptEventManager.instance().runDirect(new CommandEvent(username, command, args, tags));
+        } else {
+            ScriptEventManager.instance().runDirect(new CommandEvent(username, command, args));
+        }  
+    }
 
-		if (tags !== undefined) {
-			ScriptEventManager.instance().runDirect(new CommandEvent(username, command, args, tags));
-		} else {
-			ScriptEventManager.instance().runDirect(new CommandEvent(username, command, args));
-		}  
-	}
-	
     /*
      * @function returnCommandCost
      *
@@ -565,37 +564,35 @@
         } else {
             return 2;
         }
+    }  
+
+     /*
+     * @function priceCom
+     *
+     * @export $
+     * @param {string} username
+     * @param {string} command
+     * @param {sub} subcommand
+     * @param {bool} isMod
+     * @returns 1 | 0
+     */
+    function priceCom(username, command, subCommand, isMod) {
+        if ($.inidb.exists('pricecom', (command + ' ' + subCommand).trim())) {
+            if ((((isMod && $.getIniDbBoolean('settings', 'pricecomMods', false) && !$.isBot(username)) || !isMod)) && $.bot.isModuleEnabled('./systems/pointSystem.js')) {
+                var cost = getCommandPrice(command, subCommand, '');
+                
+                if ($.getUserPoints(username) < cost) {
+                    return 1;
+                } else {
+                    $.inidb.decr('points', username, cost);
+                }
+            }
+        } else if ($.inidb.exists('paycom', command)) {
+            $.inidb.incr('points', username, $.inidb.get('paycom', command));
+        }
+        return 0;
     }
 
-	/*
-	   * @function priceCom
-	   *
-	   * @export $
-	   * @param {string} username
-	   * @param {string} command
-	   * @param {sub} subcommand
-	   * @param {bool} isMod
-	   * @returns 1 | 0
-	*/
-	function priceCom(username, command, subCommand, isMod) {
-		var pointsModuleEnabled = $.bot.isModuleEnabled('./systems/pointSystem.js');
-
-		if ($.inidb.exists('pricecom', (command + ' ' + subCommand).trim())) {
-			if ((((isMod && $.getIniDbBoolean('settings', 'pricecomMods', false) && !$.isBot(username)) || !isMod)) && pointsModuleEnabled) {
-				var cost = getCommandPrice(command, subCommand, '');
-
-				if ($.getUserPoints(username) < cost) {
-					return 1;
-				} else {
-					$.inidb.decr('points', username, cost);
-				}
-			}
-		} else if ($.inidb.exists('paycom', command)) {
-			$.inidb.incr('points', username, $.inidb.get('paycom', command));
-		}
-		return 0;
-	}
-	
     /*
      * @function getCommandPrice
      *
@@ -665,7 +662,7 @@
          */
         if (customCommands[command] !== undefined) {
             var tag = tags(event, customCommands[command], true);
-            if (tag !== null) {
+            if (tag !== null) {               
                 $.say(tag);
             }
             return;
@@ -1121,10 +1118,10 @@
     $.addComRegisterAliases = addComRegisterAliases;
     $.returnCommandCost = returnCommandCost;
     $.permCom = permCom;
-	$.priceCom = priceCom;
+    $.priceCom = priceCom;
     $.getCommandPrice = getCommandPrice;
     $.tags = tags;
-	$.command = {
-		run: runCommand
-	};
+    $.command = {
+        run: runCommand
+    };
 })();
