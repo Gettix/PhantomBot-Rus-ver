@@ -14,17 +14,17 @@
                 count = 0,
                 i;
 
-            $.consoleLn('>>> Process is starting this might take a few minutes...');
+            $.consoleLn('>>> Процесс начинается, это может занять несколько минут...');
             running = true;
             for (i in keys) {
                 if (parseInt($.inidb.get('time', keys[i])) <= time) {
-                    $.consoleLn('>> Removing ' + keys[i] + ' from the time table with ' + $.inidb.get('time', keys[i]) + ' time.');
+                    $.consoleLn('>> Удаляем ' + keys[i] + ' из таблицы времени с ' + $.inidb.get('time', keys[i]) + ' временем.');
                     $.inidb.del('time', keys[i]);
                     count++;
                 }
             }
-            $.consoleLn('> Process done. ' + count + ' users have been removed from the times table.');
-            $.log.file(logName, '' + 'Cleanup ran for the time table by ' + sender + '. (Removed ' + count + ' users from the time table)');
+            $.consoleLn('> Выполнено. ' + count + ' пользователей было удалено из таблицы времени.');
+            $.log.file(logName, '' + 'Запущена Очистка таблицы времени. Кто: ' + sender + '. (Удалено ' + count + ' пользователей из таблицы времени)');
             running = false;
             return;
         }
@@ -35,17 +35,17 @@
                 count = 0,
                 i;
 
-            $.consoleLn('>>> Process is starting this might take a few minutes...');
+            $.consoleLn('>>> Процесс начинается, это может занять несколько минут...');
             running = true;
             for (i in keys) {
                 if (parseInt($.inidb.get('points', keys[i])) <= points) {
-                    $.consoleLn('>> Removing ' + keys[i] + ' from the points table with ' + $.inidb.get('points', keys[i]) + ' points.');
+                    $.consoleLn('>> Удаляем ' + keys[i] + ' из таблицы Points (очков) с ' + $.inidb.get('points', keys[i]) + ' очков.');
                     $.inidb.del('points', keys[i]);
                     count++;
                 }
             }
-            $.consoleLn('> Process done. ' + count + ' users have been removed from the points table.');
-            $.log.file(logName, '' + 'Cleanup ran for the points table by ' + sender + '. (Removed ' + count + ' users from the points table)');
+            $.consoleLn('> Выполнено. ' + count + ' пользователей было удалено из таблицы Points (очков).');
+            $.log.file(logName, '' + 'Запущена Очистка таблицы Points (очков). Кто: ' + sender + '. (Удалено ' + count + ' пользователей из таблицы Points (очков) )');
             running = false;
             return;
         }
@@ -57,7 +57,7 @@
                 t,
                 i;
 
-            $.consoleLn('>>> Process is starting this might take a few minutes...');
+            $.consoleLn('>>> Процесс начинается, это может занять несколько минут...');
             running = true;
             for (i in keys) {
                 t = ($.inidb.exists('time', keys[i]) ? parseInt($.inidb.get('time', keys[i])) : 0);
@@ -68,16 +68,16 @@
                     $.inidb.del('lastseen', keys[i]);
                     $.inidb.del('followed', keys[i]);
                     $.inidb.del('visited', keys[i]);
-                    $.consoleLn('>> Removed ' + keys[i] + ' from the database.');
+                    $.consoleLn('>> Удаляем ' + keys[i] + ' из Базы Данных.');
                     count++;
                 }
             }
-            $.consoleLn('> Process done. ' + count + ' users have been removed from the database.');
-            $.log.file(logName, '' + 'Cleanup ran by ' + sender + '. (Removed ' + count + ' users from the database)');
+            $.consoleLn('> Выполнено. ' + count + ' пользователей было удалено из Базы Данных.');
+            $.log.file(logName, '' + 'Запущена Очистка. Кто: ' + sender + '. (Удалено ' + count + ' пользователей из Базы Данных)');
             running = false;
             return;
         }
-        $.log.error('commands: cleanup [time / points / all] [amount of time in seconds or points if cleaning points]');
+        $.log.error('Команда: cleanup [time / points / all] [Время в секундах или points (очки) если чистим points (очки)]');
     };
 
     /**

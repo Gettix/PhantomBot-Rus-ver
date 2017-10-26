@@ -211,7 +211,7 @@
                     $.say($.lang.get('pollsystem.results.running'));
                 } else if (poll.result != '') {
                     if (poll.hasTie) {
-                        $.say($.lang.get('pollsystem.results.lastpoll', poll.question, poll.votes.length, "Tie!", poll.options.join(', '), poll.counts.join(', ')));
+                        $.say($.lang.get('pollsystem.results.lastpoll', poll.question, poll.votes.length, "Ничья!", poll.options.join(', '), poll.counts.join(', ')));
                     } else {
                         $.say($.lang.get('pollsystem.results.lastpoll', poll.question, poll.votes.length, poll.result, poll.options.join(', '), poll.counts.join(', ')));
                     }

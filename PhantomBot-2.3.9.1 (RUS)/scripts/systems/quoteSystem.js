@@ -30,7 +30,7 @@
      */
     function saveQuote(username, quote) {
         var newKey = $.inidb.GetKeyList('quotes', '').length,
-            game = ($.getGame($.channelName) != '' ? $.getGame($.channelName) : "Some Game");
+            game = ($.getGame($.channelName) != '' ? $.getGame($.channelName) : "Некоторые Игры");		// Возможно не точный перевод
 
         if ($.inidb.exists('quotes', newKey)) {
             newKey++;
@@ -168,7 +168,7 @@
                 }
                 quote = args.splice(0).join(' ');
                 $.say($.lang.get('quotesystem.add.success', $.username.resolve(sender), saveQuote(String($.username.resolve(sender)), quote)));
-                $.log.event(sender + ' added a quote "' + quote + '".');
+                $.log.event(sender + ' добавлена цитата "' + quote + '".');
                 return;
             } else {
                 if (args.length < 2) {
@@ -182,7 +182,7 @@
                 }
                 quote = args.splice(1).join(' ');
                 $.say($.lang.get('quotesystem.add.success', $.username.resolve(target), saveQuote(String($.username.resolve(target)), quote)));
-                $.log.event(sender + ' added a quote "' + quote + '".');
+                $.log.event(sender + ' добавлена цитата "' + quote + '".');
                 return;
             }
         }
@@ -219,7 +219,7 @@
                 $.say($.whisperPrefix(sender) + $.lang.get('quotesystem.del.404', args[0]));
             }
 
-            $.log.event(sender + ' removed quote with id: ' + args[0]);
+            $.log.event(sender + ' цитата удалена с id: ' + args[0]);
         }
 
         /**
@@ -247,7 +247,7 @@
                 quoteStr = quoteStr.replace('(id)', (quote.length == 5 ? quote[4].toString() : quote[3].toString())).
                 replace('(quote)', quote[1]).
                 replace('(user)', $.resolveRank(quote[0])).
-                replace('(game)', (quote.length == 5 ? quote[3] : "Some Game")).
+                replace('(game)', (quote.length == 5 ? quote[3] : "Некоторые Игры")).		// Возмож перевод не точный
                 replace('(date)', $.getLocalTimeString('dd-MM-yyyy', parseInt(quote[2])));
                 $.say(quoteStr);
             } else {
@@ -267,7 +267,7 @@
             quoteStr = args.splice(0).join(' ');
             $.inidb.set('settings', 'quoteMessage', quoteStr);
             $.say($.whisperPrefix(sender) + $.lang.get('quotesystem.quotemessage.success'));
-            $.log.event(sender + ' changed the quote message to: ' + quoteStr);
+            $.log.event(sender + ' изменил сообщение в цитате: ' + quoteStr);
         }
 
         /**

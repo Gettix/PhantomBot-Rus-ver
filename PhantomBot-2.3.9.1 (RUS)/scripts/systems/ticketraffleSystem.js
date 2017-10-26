@@ -5,7 +5,7 @@
         followers = false,
         raffleStatus = false,
         msgToggle = $.getSetIniDbBoolean('settings', 'tRaffleMSGToggle', false),
-        raffleMessage = $.getSetIniDbString('settings', 'traffleMessage', 'A raffle is still opened! Type !tickets (amount) to enter. (entries) users have entered so far.'),
+        raffleMessage = $.getSetIniDbString('settings', 'traffleMessage', 'Лотерея все еще идет! Используйте !tickets (amount) чтобы участвовать. (entries) пользователей уже участвовует.'),
         messageInterval = $.getSetIniDbNumber('settings', 'traffleMessageInterval', 0),
         totalEntries = 0,
         lastTotalEntries = 0,
@@ -65,7 +65,7 @@
             }, messageInterval * 6e4);
         }
 
-        $.log.event(user + ' opened a ticket raffle.');
+        $.log.event(user + ' начал Лотерею (билеты).');
     };
 
     function closeRaffle(user) {
@@ -87,7 +87,7 @@
 
         $.say($.lang.get('ticketrafflesystem.raffle.closed'));
         winner();
-        $.log.event(user + ' closed a ticket raffle.');
+        $.log.event(user + ' закончил Лотерею (билеты).');
     };
 
     function winner(force) {
@@ -106,7 +106,7 @@
             $.say($.lang.get('ticketrafflesystem.raffle.repick', $.username.resolve(Winner), followMsg));
         }
         $.inidb.set('traffleresults', 'winner', $.username.resolve(Winner) + ' ' + followMsg);
-        $.log.event('Winner of the ticket raffle was ' + Winner);
+        $.log.event('Победитель Лотереи ' + Winner);
     };
 
     function enterRaffle(user, times) {
@@ -248,7 +248,7 @@
                 raffleMessage = argString.replace(action, '').trim();
                 $.inidb.set('settings', 'traffleMessage', raffleMessage);
                 $.say($.whisperPrefix(sender) + $.lang.get('ticketrafflesystem.auto.msg.set', raffleMessage));
-                $.log.event(sender + ' changed the auto annouce message to ' + raffleMessage);
+                $.log.event(sender + ' изменил сообщение для Авто-Анонса Лотереи на ' + raffleMessage);
             }
 
             /**
@@ -263,7 +263,7 @@
                 messageInterval = parseInt(args[1]);
                 $.inidb.set('settings', 'traffleMessageInterval', messageInterval);
                 $.say($.whisperPrefix(sender) + $.lang.get('ticketrafflesystem.auto.msginterval.set', messageInterval));
-                $.log.event(sender + ' changed the auto annouce interval to ' + messageInterval);
+                $.log.event(sender + ' изменил время для Авто-Анонса Лотереи на ' + messageInterval);
             }
         }
 

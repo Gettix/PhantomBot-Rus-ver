@@ -15,7 +15,7 @@
         sendMessages = $.getSetIniDbBoolean('raffleSettings', 'raffleMSGToggle', false),
         whisperWinner = $.getSetIniDbBoolean('raffleSettings', 'raffleWhisperWinner', false),
         allowRepick = $.getSetIniDbBoolean('raffleSettings', 'noRepickSame', true),
-        raffleMessage = $.getSetIniDbString('raffleSettings', 'raffleMessage', 'A raffle is still opened! Type (keyword) to enter. (entries) users have entered so far.'),
+        raffleMessage = $.getSetIniDbString('raffleSettings', 'raffleMessage', 'Лотерея все еще идет! Используйте (keyword) чтобы участвовать. (entries) пользователей уже участвовует.'),
         messageInterval = $.getSetIniDbNumber('raffleSettings', 'raffleMessageInterval', 0),
         subscriberBonus = $.getSetIniDbNumber('raffleSettings', 'subscriberBonusRaffle', 1),
         regularBonus = $.getSetIniDbNumber('raffleSettings', 'regularBonusRaffle', 1),
@@ -363,7 +363,7 @@
              */
             if (action.equalsIgnoreCase('open')) {
                 open(sender, arguments);
-                $.log.event('A raffle was opened by: ' + sender + '. Arguments (' + arguments + ')');
+                $.log.event('Лотерея открыта: ' + sender + '. Аргументы: (' + arguments + ')');
                 return;
             }
 
@@ -372,7 +372,7 @@
              */
             if (action.equalsIgnoreCase('close')) {
                 close(sender);
-                $.log.event('A raffle was closed by: ' + sender + '.');
+                $.log.event('Лотерея закрыта: ' + sender + '.');
                 return;
             }
 

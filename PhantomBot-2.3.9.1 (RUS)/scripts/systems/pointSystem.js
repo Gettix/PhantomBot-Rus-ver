@@ -17,7 +17,7 @@
         pointsBonusAmount = 0,
         pointNameSingle = $.getSetIniDbString('pointSettings', 'pointNameSingle', 'point'),
         pointNameMultiple = $.getSetIniDbString('pointSettings', 'pointNameMultiple', 'points'),
-        pointsMessage = $.getSetIniDbString('pointSettings', 'pointsMessage', '(userprefix) you currently have (pointsstring) and you have been in the chat for (time).'),
+        pointsMessage = $.getSetIniDbString('pointSettings', 'pointsMessage', '(userprefix) вы в настоящее время имеете (pointsstring) и вы провели в чате (time).'),
         userCache = {};
 
     /**
@@ -219,7 +219,7 @@
             }
         }
         $.inidb.setAutoCommit(true);
-        $.log.file('pointSystem', 'Executed ' + pointNameMultiple + ' payouts. Users: ' + (uUsers.length > 0 ? uUsers.join(', ') : 'none'));
+        $.log.file('pointSystem', 'Выполнено ' + pointNameMultiple + ' выплат. Пользователей: ' + (uUsers.length > 0 ? uUsers.join(', ') : 'none'));
         lastPayout = now;
     };
 
@@ -563,8 +563,8 @@
                         $.inidb.set('pointSettings', 'pointNameMultiple', 'points');
                         $.unregisterChatCommand(pointNameSingle);
                         $.unregisterChatCommand(pointNameMultiple);
-                        pointNameSingle = "point";
-                        pointNameMultiple = "points";
+                        pointNameSingle = "point";		// Возможно "Очко". Надо тестить.
+                        pointNameMultiple = "points";	// Возможно "Очков". Надо тестить.
                         $.say($.whisperPrefix(sender) + $.lang.get('pointsystem.set.name.delete'));
                         updateSettings();
                         return;

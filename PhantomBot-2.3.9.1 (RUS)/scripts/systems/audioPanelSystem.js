@@ -81,7 +81,7 @@
                 if (!$.commandExists(commands[i])) {
                     $.registerChatCommand('./systems/audioPanelSystem.js', commands[i], 7);
                 } else {
-                    $.log.error('Cannot add custom command audio hook, command already exists: ' + commands[i]);
+                    $.log.error('Невозможно добавить кастомную команду для audio hook, команда уже существует: ' + commands[i]);
                 }
             }
         }

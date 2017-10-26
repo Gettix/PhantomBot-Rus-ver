@@ -226,7 +226,7 @@
             do {
                 data = $.youtube.SearchForVideo(searchQuery);
                 attempts++;
-            } while (data[0].length() < 11 && data[1] != "No Search Results Found" && attempts < 5);
+            } while (data[0].length() < 11 && data[1] != "No Search Results Found" && attempts < 5);	// !!!ТОЧНО НЕТ!!!
 
             // Hit 5 trys and nothing was found
             if (data[0].length() < 11) {
@@ -236,7 +236,7 @@
             videoId = data[0];
             videoTitle = data[1];
 
-            if (videoTitle.equalsIgnoreCase('video marked private') || videoTitle.equalsIgnoreCase('no search results found')) {
+            if (videoTitle.equalsIgnoreCase('video marked private') || videoTitle.equalsIgnoreCase('no search results found')) {		// Надо тестить!
                 throw videoTitle;
             }
 
@@ -954,8 +954,8 @@
 
                             jsonList['playlist'].push({ "song": videoId, "title": videoTitle, "duration": videoLength });
                         } catch (ex) {
-                            $.log.error('YouTube API Failed Lookup: Playlist [' + jsonList['playlistname'] + 
-                                        '] Index [' + playList[i] + '] YT ID [' + youTubeDbId + '] Error [' + ex + ']');
+                            $.log.error('YouTube API получил Ошибку: Playlist: [' + jsonList['playlistname'] + 
+                                        '] Index: [' + playList[i] + '] YT ID: [' + youTubeDbId + '] Ошибка: [' + ex + ']');
                         }
                     }
                 }
