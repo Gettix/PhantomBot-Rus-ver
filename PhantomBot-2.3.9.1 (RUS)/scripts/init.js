@@ -129,10 +129,10 @@
                     modules[scriptName] = new Module(scriptName, script, enabled);
 
                     if (!silent) {
-                        consoleLn('Loaded module: ' + scriptName.replace(/\.\//g, '') + ' (' + (enabled ? 'Enabled' : 'Disabled') + ')');
+                        consoleLn('Модуль Загружен: ' + scriptName.replace(/\.\//g, '') + ' (' + (enabled ? 'Включен' : 'Выключен') + ')');
                     }
                 } catch (ex) {
-                    consoleLn('Failed loading "' + scriptName + '": ' + ex);
+                    consoleLn('Ошибка загрузки "' + scriptName + '": ' + ex);
                 }
             }
         }
@@ -251,7 +251,7 @@
             i = getHookIndex(scriptName, hookName);
 
         if (hookName !== 'initReady' && $api.exists(hookName) == false) {
-            Packages.com.gmt2001.Console.err.printlnRhino('[addHook()@init.js:254] Failed to register hook "' + hookName + '" since there is no such event.');
+            Packages.com.gmt2001.Console.err.printlnRhino('[addHook()@init.js:254] Ошибка регистрации hook "' + hookName + '" поскольку такого события не существует.');
         } else if (i !== -1) {
             hooks[hookName].handlers[i].handler = handler;
         } else {
@@ -360,7 +360,7 @@
             loadScriptRecursive('./discord');
         }
 
-        $.log.event('Bot modules loaded. Initializing main functions...');
+        $.log.event('Модули бота загружены. Инициализация основых функции...');
 
         // Register custom commands.
         $.addComRegisterCommands();
@@ -372,14 +372,15 @@
         callHook('initReady', null, false);
 
         if ($.isNightly) {
-            consoleLn('PhantomBot Nightly Build - No Support is Provided');
-            consoleLn('Please report bugs including the date of the Nightly Build and Repo Version to:');
+            consoleLn('Для PhantomBot Nightly сборки - Поддержка не предоставляется');
+            consoleLn('Пожалуйста сообщайте об ошибках версии включая Дату Nightly сборки и Repo Версию:');
             consoleLn('https://community.phantombot.tv/c/support/bug-reports');
         } else if ($.isPrerelease) {
-            consoleLn('PhantomBot Pre-Release Build - Please Report Bugs and Issues Found');
-            consoleLn('When reporting bugs or issues, please remember to indicate that this is a pre-release build.');
+            consoleLn('У вас PhantomBot Pre-Release сборка - Пожалуйста сообщайте об ошибках и проблемах');
+            consoleLn('Если вы сообщаете об ошибках или проблемах, не забудьте указать, что это предварительная версия.');
         } else {
-            consoleLn('For support please visit: https://community.phantombot.tv');
+            consoleLn('Для получения поддержки Официальной версии: https://community.phantombot.tv');
+			consoleLn('Для получения поддержки Русской версии: https://vk.com/thefirstnoob');
         }
         consoleLn('');
     }
