@@ -2,9 +2,9 @@
  * This module is to handle subscriber notifications.
  */
 (function() {
-	var subMessage = $.getSetIniDbString('discordSettings', 'subMessage', '(name) just subscribed!'),
-	    primeMessage = $.getSetIniDbString('discordSettings', 'primeMessage', '(name) just subscribed with Twitch Prime!'),
-	    resubMessage = $.getSetIniDbString('discordSettings', 'resubMessage', '(name) just subscribed for (months) months in a row!'),
+	var subMessage = $.getSetIniDbString('discordSettings', 'subMessage', '(name) только что Купил(а) подписку! Спасибо большое за поддержку!'),
+	    primeMessage = $.getSetIniDbString('discordSettings', 'primeMessage', '(name) только что Купил(а) подписку через Twitch Prime!'),
+	    resubMessage = $.getSetIniDbString('discordSettings', 'resubMessage', '(name) только что Купил(а) подписку на (months) месяцев подряд!'),
 	    subToggle = $.getSetIniDbBoolean('discordSettings', 'subToggle', false),
 	    primeToggle = $.getSetIniDbBoolean('discordSettings', 'primeToggle', false),
 	    resubToggle = $.getSetIniDbBoolean('discordSettings', 'resubToggle', false),
@@ -16,9 +16,9 @@
      */
     $.bind('webPanelSocketUpdate', function(event) {
         if (event.getScript().equalsIgnoreCase('./discord/handlers/subscribeHandler.js')) {
-            subMessage = $.getIniDbString('discordSettings', 'subMessage', '(name) just subscribed!');
-            primeMessage = $.getIniDbString('discordSettings', 'primeMessage', '(name) just subscribed with Twitch Prime!');
-            resubMessage = $.getIniDbString('discordSettings', 'resubMessage', '(name) just subscribed for (months) months in a row!');
+            subMessage = $.getIniDbString('discordSettings', 'subMessage', '(name) только что Купил(а) подписку! Спасибо большое за поддержку!');
+            primeMessage = $.getIniDbString('discordSettings', 'primeMessage', '(name) только что Купил(а) подписку через Twitch Prime!');
+            resubMessage = $.getIniDbString('discordSettings', 'resubMessage', '(name) только что Купил(а) подписку на (months) месяцев подряд!');
             subToggle = $.getIniDbBoolean('discordSettings', 'subToggle', false);
             primeToggle = $.getIniDbBoolean('discordSettings', 'primeToggle', false);
             resubToggle = $.getIniDbBoolean('discordSettings', 'resubToggle', false);

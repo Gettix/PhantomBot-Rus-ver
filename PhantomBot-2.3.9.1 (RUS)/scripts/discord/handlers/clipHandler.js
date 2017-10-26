@@ -4,7 +4,7 @@
  */
 (function() {
     var toggle = $.getSetIniDbBoolean('discordSettings', 'clipsToggle', false),
-        message = $.getSetIniDbString('discordSettings', 'clipsMessage', '(name) created a clip: (url)'),
+        message = $.getSetIniDbString('discordSettings', 'clipsMessage', '(name) создал клип: (url)'),
         channelName = $.getSetIniDbString('discordSettings', 'clipsChannel', '');
 
     /**
@@ -13,7 +13,7 @@
     $.bind('webPanelSocketUpdate', function(event) {
         if (event.getScript().equalsIgnoreCase('./discord/handlers/clipHandler.js')) {
             toggle = $.getIniDbBoolean('discordSettings', 'clipsToggle', false);
-            message = $.getIniDbString('discordSettings', 'clipsMessage', '(name) created a clip: (url)');
+            message = $.getIniDbString('discordSettings', 'clipsMessage', '(name) создал клип: (url)');
             channelName = $.getIniDbString('discordSettings', 'clipsChannel', '');
         }
     });

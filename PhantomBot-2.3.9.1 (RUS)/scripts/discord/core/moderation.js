@@ -140,16 +140,16 @@
             obj = {},
             i;
 
-        obj['**Timeout_placed_on:**'] = '[' + username + '](https://twitch.tv/' + username.toLowerCase() + ')';
-        obj['**Creator:**'] = creator;
-        obj['**Reason:**'] = reason;
-        obj['**Time:**'] = time + ' seconds.';
+        obj['**ТаймАут_получил:**'] = '[' + username + '](https://twitch.tv/' + username.toLowerCase() + ')';
+        obj['**Кто_выдал:**'] = creator;
+        obj['**Причина:**'] = reason;
+        obj['**Время:**'] = time + ' секунд.';
 
         if (cbenniToggle) {
             obj['**Cbenni:**'] = '[https://cbenni.com/' + $.channelName + '?user=' + username.toLowerCase() + '](https://cbenni.com/' + $.channelName + '?user=' + username.toLowerCase() + ')';
         }
 
-        obj['**Last_message:**'] = (message.length() > 50 ? message.substring(0, 50) + '...' : message);
+        obj['**Последнее_сообщение:**'] = (message.length() > 50 ? message.substring(0, 50) + '...' : message);
 
         var keys = Object.keys(obj);
         for (i in keys) {
@@ -173,10 +173,10 @@
             obj = {},
             i;
 
-        obj['**Ban_placed_on:**'] = '[' + username + '](https://twitch.tv/' + username.toLowerCase() + ')';
-        obj['**Creator:**'] = creator;
-        obj['**Reason:**'] = reason;
-        obj['**Last_message:**'] = (message.length() > 50 ? message.substring(0, 50) + '...' : message);
+        obj['**Бан_получил:**'] = '[' + username + '](https://twitch.tv/' + username.toLowerCase() + ')';
+        obj['**Кто_выдал:**'] = creator;
+        obj['**Причина:**'] = reason;
+        obj['**Последнее_сообщение:**'] = (message.length() > 50 ? message.substring(0, 50) + '...' : message);
 
         var keys = Object.keys(obj);
         for (i in keys) {
@@ -215,7 +215,7 @@
             return;
         }
 
-        $.discordAPI.sendMessageEmbed(modLogChannel, 'green', '**Timeout removed from:** ' + '[' + username + '](https://twitch.tv/' + username.toLowerCase() + ')' + ' \r\n\r\n **Creator:** ' + creator);
+        $.discordAPI.sendMessageEmbed(modLogChannel, 'green', '**ТаймАут был снял у:** ' + '[' + username + '](https://twitch.tv/' + username.toLowerCase() + ')' + ' \r\n\r\n **Кто снял:** ' + creator);
     });
 
     /*
@@ -229,7 +229,7 @@
             return;
         }
 
-        $.discordAPI.sendMessageEmbed(modLogChannel, 'green', '**Ban removed from:** ' + '[' + username + '](https://twitch.tv/' + username.toLowerCase() + ')' + ' \r\n\r\n **Creator:** ' + creator);
+        $.discordAPI.sendMessageEmbed(modLogChannel, 'green', '**Бан был снят у:** ' + '[' + username + '](https://twitch.tv/' + username.toLowerCase() + ')' + ' \r\n\r\n **Кто снял:** ' + creator);
     });
 
     /*

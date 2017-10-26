@@ -3,8 +3,8 @@
  */
 (function() {
     var toggle = $.getSetIniDbBoolean('discordSettings', 'hostToggle', false),
-          hostMessage = $.getSetIniDbString('discordSettings', 'hostMessage', '(name) just hosted!'),
-          autoHostMessage = $.getSetIniDbString('discordSettings', 'autohostMessage', '(name) just auto-hosted!'),
+          hostMessage = $.getSetIniDbString('discordSettings', 'hostMessage', '(name) захостил вас!'),
+          autoHostMessage = $.getSetIniDbString('discordSettings', 'autohostMessage', '(name) выдал вам јвто-’ост!'),
           channelName = $.getSetIniDbString('discordSettings', 'hostChannel', ''),
           hosters = {},
           announce = false;
@@ -15,8 +15,8 @@
     $.bind('webPanelSocketUpdate', function(event) {
         if (event.getScript().equalsIgnoreCase('./discord/handlers/hostHandler.js')) {
             toggle = $.getIniDbBoolean('discordSettings', 'hostToggle', false);
-            hostMessage = $.getIniDbString('discordSettings', 'hostMessage', '(name) just hosted!');
-            autoHostMessage = $.getIniDbString('discordSettings', 'autohostMessage', '(name) just auto-hosted!');
+            hostMessage = $.getIniDbString('discordSettings', 'hostMessage', '(name) захостил вас!');
+            autoHostMessage = $.getIniDbString('discordSettings', 'autohostMessage', '(name) выдал вам јвто-’ост!');
             channelName = $.getIniDbString('discordSettings', 'hostChannel', '');
         }
     });

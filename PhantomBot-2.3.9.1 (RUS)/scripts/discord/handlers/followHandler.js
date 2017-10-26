@@ -3,7 +3,7 @@
  */
 (function() {
 	var toggle = $.getSetIniDbBoolean('discordSettings', 'followToggle', false),
-	    message = $.getSetIniDbString('discordSettings', 'followMessage', '(name) just followed!'),
+	    message = $.getSetIniDbString('discordSettings', 'followMessage', '(name) теперь Следует (подписался)!'),
 	    channelName = $.getSetIniDbString('discordSettings', 'followChannel', ''),
 	    announce = false;
 
@@ -13,7 +13,7 @@
     $.bind('webPanelSocketUpdate', function(event) {
         if (event.getScript().equalsIgnoreCase('./discord/handlers/followHandler.js')) {
             toggle = $.getIniDbBoolean('discordSettings', 'followToggle', false);
-            message = $.getIniDbString('discordSettings', 'followMessage', '(name) just followed!');
+            message = $.getIniDbString('discordSettings', 'followMessage', '(name) теперь Следует (подписался)!');
             channelName = $.getIniDbString('discordSettings', 'followChannel', '');
         }
     });
