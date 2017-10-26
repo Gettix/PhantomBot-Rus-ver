@@ -12,3 +12,4 @@ curseappbot
 revlobot
 muxybot
 faegwent
+mikuia
