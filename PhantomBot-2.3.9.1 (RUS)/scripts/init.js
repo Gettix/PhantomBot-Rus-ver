@@ -129,7 +129,7 @@
                     modules[scriptName] = new Module(scriptName, script, enabled);
 
                     if (!silent) {
-                        consoleLn('Модуль Загружен: ' + scriptName.replace(/\.\//g, '') + ' (' + (enabled ? 'Включен' : 'Выключен') + ')');
+                        consoleLn('Модуль Загружен: ' + scriptName.replace(/\.\//g, '') + ' (' + (enabled ? 'Активен' : 'Не-Активен') + ')');
                     }
                 } catch (ex) {
                     consoleLn('Ошибка загрузки "' + scriptName + '": ' + ex);
