@@ -4,9 +4,9 @@
  * Register new subscribers and unsubscribers in the channel
  */
 (function() {
-    var subMessage = $.getSetIniDbString('subscribeHandler', 'subscribeMessage', '(name) just subscribed!'),
-        primeSubMessage = $.getSetIniDbString('subscribeHandler', 'primeSubscribeMessage', '(name) just subscribed with Twitch Prime!'),
-        reSubMessage = $.getSetIniDbString('subscribeHandler', 'reSubscribeMessage', '(name) just subscribed for (months) months in a row!'),
+    var subMessage = $.getSetIniDbString('subscribeHandler', 'subscribeMessage', '(name) только что Купил(а) подписку! Спасибо большое за поддержку!'),
+        primeSubMessage = $.getSetIniDbString('subscribeHandler', 'primeSubscribeMessage', '(name) только что Купил(а) подписку через Twitch Prime!'),
+        reSubMessage = $.getSetIniDbString('subscribeHandler', 'reSubscribeMessage', '(name) только что Купил(а) подписку на (months) месяцев подряд!'),
         subWelcomeToggle = $.getSetIniDbBoolean('subscribeHandler', 'subscriberWelcomeToggle', true),
         primeSubWelcomeToggle = $.getSetIniDbBoolean('subscribeHandler', 'primeSubscriberWelcomeToggle', true),
         reSubWelcomeToggle = $.getSetIniDbBoolean('subscribeHandler', 'reSubscriberWelcomeToggle', true),

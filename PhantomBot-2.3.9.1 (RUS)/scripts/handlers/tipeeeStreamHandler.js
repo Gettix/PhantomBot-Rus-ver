@@ -32,12 +32,12 @@
         }
 
         if (!$.isDirectory(dir)) {
-            $.consoleDebug('>> Creating the TipeeeStream Handler Directory: ' + dir);
+            $.consoleDebug('>> Создаем Директорию для Донатов TipeeeStream (Handler): ' + dir);
             $.mkDir(dir);
         }
 
-        $.consoleLn('>> Enabling TipeeeStream donation announcements');
-        $.log.event('TipeeeStream donation announcements enabled');
+        $.consoleLn('>> Включаем Оповещения Донатов со TipeeeStream');
+        $.log.event('Оповещения Донатов Включены');
         announce = true;
     });
 

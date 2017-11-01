@@ -4,14 +4,14 @@
  */
 (function() {
     var toggle = $.getSetIniDbBoolean('clipsSettings', 'toggle', false),
-        message = $.getSetIniDbString('clipsSettings', 'message', '(name) created a clip: (url)');
+        message = $.getSetIniDbString('clipsSettings', 'message', '(name) создал(а) Клип: (url)');
 
     /*
      * @function reloadClips
      */
     function reloadClips() {
         toggle = $.getIniDbBoolean('clipsSettings', 'toggle', false);
-        message = $.getIniDbString('clipsSettings', 'message', '(name) created a clip: (url)');
+        message = $.getIniDbString('clipsSettings', 'message', '(name) создал(а) Клип: (url)');
     }
 
     /*

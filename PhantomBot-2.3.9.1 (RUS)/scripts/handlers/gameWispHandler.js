@@ -5,9 +5,9 @@
  */
 (function() {
 
-    var subMessage = $.getSetIniDbString('gameWispSubHandler', 'subscribeMessage', '(name) just subscribed via GameWisp at tier level (tier)!'),
-        reSubMessage = $.getSetIniDbString('gameWispSubHandler', 'reSubscribeMessage', '(name) just subscribed for (months) months in a row via GameWisp!'),
-        tierUpMessage = $.getSetIniDbString('gameWispSubHandler', 'tierUpMessage', '(name) upgraded to tier (tier) on GameWisp!');
+    var subMessage = $.getSetIniDbString('gameWispSubHandler', 'subscribeMessage', '(name) только что купил(а) подписку через GameWisp с tier level (tier)!'),
+        reSubMessage = $.getSetIniDbString('gameWispSubHandler', 'reSubscribeMessage', '(name) только что купил(а) подписку на (months) месяцев подряд через GameWisp!'),
+        tierUpMessage = $.getSetIniDbString('gameWispSubHandler', 'tierUpMessage', '(name) только что улучшил(а) свой tier (tier) через GameWisp!');
         subShowMessages = $.getSetIniDbBoolean('gameWispSubHandler', 'subscriberShowMessages', true),
         subReward = $.getSetIniDbNumber('gameWispSubHandler', 'subscribeReward', 0),
         reSubReward = $.getSetIniDbNumber('gameWispSubHandler', 'reSubscribeReward', 0);
@@ -186,9 +186,9 @@
         $.consoleDebug('checkGameWispSub(' + username + '): ' + jsonString.replace(/access_token=\w+&/, ''));
 
         if (jsonData['error_description'] !== undefined) {
-            if (jsonData['error_description'].equals('The resource owner or authorization server denied the request.')) {
+            if (jsonData['error_description'].equals('The resource owner or authorization server denied the request.')) {		// Не уверен что надо переводить! Надо тестить!
                 gameWispAuthenticated = false;
-                $.log.error('GameWisp: Access denied, please check your access tokens, will stop checking subscriber status.');
+                $.log.error('GameWisp: Доступ запрещен! Пожалуйста проверьте Токены, проверка Платных Подписок отключена.');
                 return;
             }
         }
@@ -206,14 +206,14 @@
             return;
         }
         if (jsonData['data'][0] == undefined) {
-            $.consoleDebug('checkGameWispSub(' + username + '): data is undefined');
+            $.consoleDebug('checkGameWispSub(' + username + '): data не определено');
             if ($.getIniDbBoolean('gamewispsubs', username, false)) {
                 $.addGWSubUsersList($.users[i][0], $.getIniDbNumber('gamewispsubs', username + '_tier', 1));
             }
             return;
         }
         if (jsonData['data'][0]['status'] == undefined) {
-            $.consoleDebug('checkGameWispSub(' + username + '): status is undefined');
+            $.consoleDebug('checkGameWispSub(' + username + '): status не определено');
             if ($.getIniDbBoolean('gamewispsubs', username, false)) {
                 $.addGWSubUsersList($.users[i][0], $.getIniDbNumber('gamewispsubs', username + '_tier', 1));
             }
@@ -221,15 +221,15 @@
         }
 
         if (jsonData['data'][0]['status'].equals('inactive')) {
-            $.consoleDebug('checkGameWispSub(' + username + '): inactive account');
+            $.consoleDebug('checkGameWispSub(' + username + '): Аккаунт Не-Активен');
             $.delGWSubUsersList(username);
             $.restoreSubscriberStatus(username, false);
         } else {
-            $.consoleDebug('checkGameWispSub(' + username + '): adding to sub users list');
+            $.consoleDebug('checkGameWispSub(' + username + '): Добавляем список Подписчиков');
             $.addGWSubUsersList(username, parseInt(jsonData['data'][0]['tier']['data']['level']));
-            $.consoleDebug('checkGameWispSub(' + username + '): calling DB update; mods are ignored');
+            $.consoleDebug('checkGameWispSub(' + username + '): Посылаем обновление Базы Данных; Модерация исключена');
             $.restoreSubscriberStatus(username, false);
-            $.consoleDebug('checkGameWispSub(' + username + '): handler complete');
+            $.consoleDebug('checkGameWispSub(' + username + '): handler выполнен');
         }
     }
 

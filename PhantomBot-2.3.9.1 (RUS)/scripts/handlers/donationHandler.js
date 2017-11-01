@@ -32,12 +32,12 @@
         }
 
         if (!$.isDirectory(donationAddonDir)) {
-            $.consoleDebug('>> Creating Donation Handler Directory: ' + donationAddonDir);
+            $.consoleDebug('>> Создаем Директорию для Донатов StreamLabs (Handler): ' + donationAddonDir);
             $.mkDir(donationAddonDir);
         }
 
-        $.consoleLn('>> Enabling StreamLabs donation announcements');
-        $.log.event('Donation announcements enabled');
+        $.consoleLn('>> Включаем Оповещения Донатов со StreamLabs');
+        $.log.event('Оповещения Донатов Включены');
         announceDonationsAllowed = true;
     });
 

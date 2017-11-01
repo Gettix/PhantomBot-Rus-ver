@@ -42,7 +42,7 @@
                         return;
                     }
                 } else {
-                    $.log.error('Failed to send keyword "' + keys[i] + '": ' + ex.message);
+                    $.log.error('Не удалось отправить Ключевое слово/выражение "' + keys[i] + '": ' + ex.message);
                     return;
                 }
             }
@@ -50,7 +50,7 @@
             keyword = $.inidb.get('keywords', origKey);
 
             if ($.coolDownKeywords.get(key, event.getSender()) > 0) {
-                $.consoleDebug('[COOLDOWN] Keyword ' + key + ' was not sent because its on a cooldown.');
+                $.consoleDebug('[COOLDOWN] Ключевое слово/выражение ' + key + ' не отправлено потому что сработал КулДаун.');
                 return;
             }
 

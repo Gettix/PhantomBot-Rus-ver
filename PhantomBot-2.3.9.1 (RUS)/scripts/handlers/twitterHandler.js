@@ -18,9 +18,9 @@
         interval;
  
     /* Set default values for all configuration items. */
-    $.getSetIniDbString('twitter', 'message_online', 'Starting up a stream (twitchurl)');
-    $.getSetIniDbString('twitter', 'message_gamechange', 'Changing game over to (game) (twitchurl)');
-    $.getSetIniDbString('twitter', 'message_update', 'Still streaming (game) [(uptime)] (twitchurl)');
+    $.getSetIniDbString('twitter', 'message_online', 'Только что Начал(а) Трансляцию (twitchurl)');
+    $.getSetIniDbString('twitter', 'message_gamechange', 'Только что Изменил(а) игру на (game) (twitchurl)');
+    $.getSetIniDbString('twitter', 'message_update', 'Все еще Стримит (game) [(uptime)] (twitchurl)');
 
     $.getSetIniDbNumber('twitter', 'polldelay_mentions', 60);
     $.getSetIniDbNumber('twitter', 'polldelay_retweets', 60);
@@ -433,11 +433,11 @@
              */
             if (commandArg.equalsIgnoreCase('lasttweet')) {
                 if ($.getIniDbBoolean('twitter', 'poll_hometimeline', false)) {
-                    $.say($.whisperPrefix(sender) + $.lang.get('twitter.lasttweet', $.getIniDbString('twitter', 'last_hometimeline', 'No Tweets have been pulled yet!')));
+                    $.say($.whisperPrefix(sender) + $.lang.get('twitter.lasttweet', $.getIniDbString('twitter', 'last_hometimeline', 'Твитов все еще нет!')));
                     return;
                 }
                 if ($.getIniDbBoolean('twitter', 'poll_usertimeline', false)) {
-                    $.say($.whisperPrefix(sender) + $.lang.get('twitter.lasttweet', $.getIniDbString('twitter', 'last_usertimeline', 'No Tweets have been pulled yet!')));
+                    $.say($.whisperPrefix(sender) + $.lang.get('twitter.lasttweet', $.getIniDbString('twitter', 'last_usertimeline', 'Твитов все еще нет!')));
                     return;
                 }
                 $.say($.whisperPrefix(sender) + $.lang.get('twitter.lasttweet.disabled'));
@@ -449,7 +449,7 @@
              */
             if (commandArg.equalsIgnoreCase('lastmention')) {
                 if ($.getIniDbBoolean('twitter', 'poll_mentions', false)) {
-                    $.say($.whisperPrefix(sender) + $.lang.get('twitter.lastmention', $.getIniDbString('twitter', 'last_mentions', 'No Mentions have been pulled yet!')));
+                    $.say($.whisperPrefix(sender) + $.lang.get('twitter.lastmention', $.getIniDbString('twitter', 'last_mentions', 'Упоминаний все еще нет!')));
                     return;
                 }
                 $.say($.whisperPrefix(sender) + $.lang.get('twitter.lastmention.disabled'));
@@ -461,7 +461,7 @@
              */
             if (commandArg.equalsIgnoreCase('lastretweet')) {
                 if ($.getIniDbBoolean('twitter', 'poll_retweets', false)) {
-                    $.say($.whisperPrefix(sender) + $.lang.get('twitter.lastretweet', $.getIniDbString('twitter', 'last_retweets', 'No Retweets have been pulled yet!')));
+                    $.say($.whisperPrefix(sender) + $.lang.get('twitter.lastretweet', $.getIniDbString('twitter', 'last_retweets', 'РеТвитов все еще нет!')));
                     return;
                 }
                 $.say($.whisperPrefix(sender) + $.lang.get('twitter.lastretweet.disabled'));

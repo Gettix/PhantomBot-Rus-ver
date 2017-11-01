@@ -43,7 +43,7 @@
      * @event twitchFollowsInitialized
      */
     $.bind('twitchFollowsInitialized', function() {
-        $.consoleLn('>> Enabling follower announcements');
+        $.consoleLn('>> Включаем Оповещения Подписок (Follow - Следовать)');
 
         announceFollows = true;
     });

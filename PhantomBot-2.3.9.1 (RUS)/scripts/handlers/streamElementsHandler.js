@@ -28,12 +28,12 @@
      */
     $.bind('streamElementsDonationInitialized', function(event) {
         if (!$.isDirectory(dir)) {
-            $.consoleDebug('>> Creating the StreamElements Handler Directory: ' + dir);
+            $.consoleDebug('>> Создаем Директорию для Донатов StreamElements (Handler): ' + dir);
             $.mkDir(dir);
         }
 
-        $.consoleLn('>> Enabling StreamElements donation announcements');
-        $.log.event('StreamElements donation announcements enabled');
+        $.consoleLn('>> Включаем Оповещения Донатов со StreamElements');
+        $.log.event('Оповещения Донатов Включены');
         announce = true;
     });
 

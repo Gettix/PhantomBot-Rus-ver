@@ -23,8 +23,8 @@
             return;
         }
 
-        $.consoleLn('DataRenderService: Processing Data (see event logs for details)');
-        $.log.event('DataRenderService: Handler Process Start');
+        $.consoleLn('DataRenderService: Выполняется Процедура DataRenderService... (Смотрите Логи events для информации)');
+        $.log.event('DataRenderService: Handler Процедура запущена...');
 
         commandHelpFileData = $.readFile('./addons/dataservice/commands_help.txt');
         for (var idx in commandHelpFileData) {
@@ -65,7 +65,7 @@
         }
         jsonStringer.endArray().endObject();
         apiStatus = $.dataRenderServiceAPI.postData(jsonStringer.toString(), $.channelName, 'commands');
-        $.log.event('DataRenderService: Commands API status : ' + apiStatus);
+        $.log.event('DataRenderService: Статус API команд : ' + apiStatus);
 
         keys = $.inidb.GetKeyList('quotes', '');
         jsonStringer = new JSONStringer();
@@ -80,7 +80,7 @@
         }
         jsonStringer.endArray().endObject();
         apiStatus = $.dataRenderServiceAPI.postData(jsonStringer.toString(), $.channelName, 'quotes');
-        $.log.event('DataRenderService: Quotes API status : ' + apiStatus);
+        $.log.event('DataRenderService: Статус API Цитат : ' + apiStatus);
         
         keys = $.inidb.GetKeyList('points', '');
         jsonStringer = new JSONStringer();
@@ -93,7 +93,7 @@
         }
         jsonStringer.endArray().endObject();
         apiStatus = $.dataRenderServiceAPI.postData(jsonStringer.toString(), $.channelName, 'points');
-        $.log.event('DataRenderService: Points API status : ' + apiStatus);
+        $.log.event('DataRenderService: Статус API Очков (Points) : ' + apiStatus);
 
         keys = $.inidb.GetKeyList('time', '');
         jsonStringer = new JSONStringer();
@@ -114,15 +114,15 @@
         jsonStringer.endArray().endObject();
         ranksJsonStringer.endArray().endObject();
         apiStatus = $.dataRenderServiceAPI.postData(jsonStringer.toString(), $.channelName, 'times');
-        $.log.event('DataRenderService: Times API status : ' + apiStatus);
+        $.log.event('DataRenderService: Статус API Времени : ' + apiStatus);
 
         apiStatus = $.dataRenderServiceAPI.postData(ranksJsonStringer.toString(), $.channelName, 'ranks');
-        $.log.event('DataRenderService: Ranks API status : ' + apiStatus);
+        $.log.event('DataRenderService: Статус API Рангов : ' + apiStatus);
 
-        $.log.event('DataRenderService: Handler Process Complete');
+        $.log.event('DataRenderService: Handler Процедура выполнена!');
         $.setIniDbNumber('datarenderservice', 'last_time', $.systemTime());
 
-        $.consoleLn('DataRenderService: Data has been Processed');
+        $.consoleLn('DataRenderService: Процедура DataRenderService выполнена!');
     }
 
     /**
@@ -152,7 +152,7 @@
             $.registerChatCommand('./handlers/dataServiceHandler.js', 'terminatedataserviceapi', 1);
 
             if ($.dataRenderServiceAPI.hasAPIKey()) {
-                $.consoleLn('Data Render Service API Key Present, Enabling Data Feed');
+                $.consoleLn('Data Render Service API Key Получен! Включаем поток данных с Data Feed');
                 setInterval(function() { drsTimer(); }, 6e4); 
             }
         }

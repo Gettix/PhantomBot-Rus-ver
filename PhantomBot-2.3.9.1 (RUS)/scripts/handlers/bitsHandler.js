@@ -4,7 +4,7 @@
  */
 (function() {
 	var toggle = $.getSetIniDbBoolean('bitsSettings', 'toggle', false),
-	    message = $.getSetIniDbString('bitsSettings', 'message', '(name) just cheered (amount) bits!'),
+	    message = $.getSetIniDbString('bitsSettings', 'message', '(name) только что ЗаЧирил (amount) bits!'),
 	    minimum = $.getSetIniDbNumber('bitsSettings', 'minimum', 0),
 	    announceBits = false;
 
@@ -13,7 +13,7 @@
 	 */
 	function reloadBits() {
 		toggle = $.getIniDbBoolean('bitsSettings', 'toggle', false);
-	    message = $.getIniDbString('bitsSettings', 'message', '(name) just cheered (amount) bits!');
+	    message = $.getIniDbString('bitsSettings', 'message', '(name) только что ЗаЧирил (amount) bits!');
 	    minimum = $.getIniDbNumber('bitsSettings', 'minimum', 0);
 	}
 

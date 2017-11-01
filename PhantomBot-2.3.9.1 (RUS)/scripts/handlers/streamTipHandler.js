@@ -33,12 +33,12 @@
         }
 
         if (!$.isDirectory(donationAddonDir)) {
-            $.consoleDebug(">> Creating StreamTip handler Directory: " + donationAddonDir);
+            $.consoleDebug(">> Создаем Директорию для Донатов StreamTip (Handler): " + donationAddonDir);
             $.mkDir(donationAddonDir);
         }
 
-        $.consoleLn(">> Enabling StreamTip donation announcements");
-        $.log.event('Donation announcements enabled');
+        $.consoleLn('>> Включаем Оповещения Донатов со StreamTip');
+        $.log.event('Оповещения Донатов Включены');
         announceDonations = true;
     });
 

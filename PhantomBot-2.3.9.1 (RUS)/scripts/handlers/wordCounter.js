@@ -31,7 +31,7 @@
                 subAction = subAction.replace(action, '').toLowerCase();
                 $.inidb.set('wordCounter', subAction, 0);
                 $.say(subAction + $.lang.get('wordcounter.added'));
-                $.log.event(sender + ' added "' + subAction + '" to the word counter list');
+                $.log.event(sender + ' добавил(а) "' + subAction + '" слово в Список');
             }
 
             /**
@@ -49,7 +49,7 @@
                 subAction = subAction.replace(action, '').toLowerCase();
                 $.inidb.del('wordCounter', subAction);
                 $.say(subAction + $.lang.get('wordcounter.removed'));
-                $.log.event(sender + ' removed "' + subAction + '" to the word counter list');
+                $.log.event(sender + ' удалил(а) "' + subAction + '" слово в Список');
             }
         }
 
