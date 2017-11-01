@@ -32,7 +32,7 @@
             command = event.getCommand(),
             args = event.getArgs(),
             action = args[0],
-            game = ($.getGame($.channelName) != '' ? $.getGame($.channelName) : 'Some Game');
+            game = ($.getGame($.channelName) != '' ? $.getGame($.channelName) : 'Некоторые Игры');		// Возможно перевод не точен
 
         /*
          * @commandpath deathctr - Display the current number of deaths in game being played.
@@ -122,7 +122,7 @@
         $.registerChatSubcommand('deathctr', '-', 2);
 
         setTimeout(function() {
-            deathUpdateFile(($.getGame($.channelName) != '' ? $.getGame($.channelName) : 'Some Game'));
+            deathUpdateFile(($.getGame($.channelName) != '' ? $.getGame($.channelName) : 'Некоторые Игры'));		// Возможно перевод не точен
         }, 10000);
     });
 

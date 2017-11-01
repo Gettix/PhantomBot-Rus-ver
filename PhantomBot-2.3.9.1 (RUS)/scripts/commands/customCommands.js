@@ -91,7 +91,7 @@
             try {
                 eval(code);
             } catch (ex) {
-                $.log.error('Failed to run custom code: ' + ex.message);
+                $.log.error('Ошибка инициализации Кастомной Команды: ' + ex.message);
             }
             return null;
         }
@@ -335,12 +335,12 @@
         }
 
         if (message.match(/\(lasttip\)/g)) {
-            message = $.replace(message, '(lasttip)', ($.inidb.exists('donations', 'last_donation_message') ? $.inidb.get('donations', 'last_donation_message') : 'No donations found.'));
+            message = $.replace(message, '(lasttip)', ($.inidb.exists('donations', 'last_donation_message') ? $.inidb.get('donations', 'last_donation_message') : 'Последние донаты не найдены!'));
         }
 
         if (message.match(/\(playsound\s([a-zA-Z1-9_]+)\)/g)) {
             if (!$.audioHookExists(message.match(/\(playsound\s([a-zA-Z1-9_]+)\)/)[1])) {
-                $.log.error('Could not play audio hook: Audio hook does not exist.');
+                $.log.error('Невозможно проиграть этот audio hook: Такой Audio hook не существует.');
                 return null;
             }
             $.panelsocketserver.triggerAudioPanel(message.match(/\(playsound\s([a-zA-Z1-9_]+)\)/)[1]);
@@ -466,7 +466,7 @@
                         try {
                             customAPIResponse = new JSONObject(origCustomAPIResponse).get(jsonCheckList[0]);
                         } catch (ex) {
-                            $.log.error('Failed to get data from API: ' + ex.message);
+                            $.log.error('Ошибка получения данных с API: ' + ex.message);
                             return $.lang.get('customcommands.customapijson.err', command);
                         }
                         customAPIReturnString += " " + customAPIResponse;
@@ -476,21 +476,21 @@
                                 try {
                                     jsonObject = new JSONObject(origCustomAPIResponse).get(jsonCheckList[i]);
                                 } catch (ex) {
-                                    $.log.error('Failed to get data from API: ' + ex.message);
+                                    $.log.error('Ошибка получения данных с API: ' + ex.message);
                                     return $.lang.get('customcommands.customapijson.err', command);
                                 }
                             } else if (!isNaN(jsonCheckList[i + 1])) {
                                 try {
                                     jsonObject = jsonObject.get(jsonCheckList[i]);
                                 } catch (ex) {
-                                    $.log.error('Failed to get data from API: ' + ex.message);
+                                    $.log.error('Ошибка получения данных с API: ' + ex.message);
                                     return $.lang.get('customcommands.customapijson.err', command);
                                 }
                             } else {
                                 try {
                                     jsonObject = jsonObject.get(jsonCheckList[i]);
                                 } catch (ex) {
-                                    $.log.error('Failed to get data from API: ' + ex.message);
+                                    $.log.error('Ошибка получения данных с API: ' + ex.message);
                                     return $.lang.get('customcommands.customapijson.err', command);
                                 }
                             }
@@ -498,7 +498,7 @@
                         try {
                             customAPIResponse = jsonObject.get(jsonCheckList[i]);
                         } catch (ex) {
-                            $.log.error('Failed to get data from API: ' + ex.message);
+                            $.log.error('Ошибка получения данных с API: ' + ex.message);
                             return $.lang.get('customcommands.customapijson.err', command);
                         }
                         customAPIReturnString += " " + customAPIResponse;
