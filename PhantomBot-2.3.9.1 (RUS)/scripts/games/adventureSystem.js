@@ -77,7 +77,7 @@
             }
         }  
 
-        $.log.warn('You must have at least one adventure that doesn\'t require a game to be set.');
+        $.log.warn('У вас должно быть хотя бы одно приключение, которое не требует установки игры.');		// Возможно перевод не точен!
         currentAdventure.gameState = 2;
     };
 
@@ -238,7 +238,7 @@
      */
     function joinHeist(username, bet) {
         if (stories.length < 1) {
-            $.log.error('No adventures found; cannot start an adventure.');
+            $.log.error('Приключения не найдены! Невозможно запустить Приключения.');
             return;
         }
 
