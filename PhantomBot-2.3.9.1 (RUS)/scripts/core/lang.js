@@ -9,14 +9,14 @@
  */
 (function() {
     var data = [],
-        curLang = ($.inidb.exists('settings', 'lang') ? $.inidb.get('settings', 'lang') : 'english');
+        curLang = ($.inidb.exists('settings', 'lang') ? $.inidb.get('settings', 'lang') : 'russian');
 
     /**
      * @function load
      */
     function load(force) {
-        $.bot.loadScriptRecursive('./lang/english', true, (force ? force : false));
-        if (curLang != 'english') {
+        $.bot.loadScriptRecursive('./lang/russian', true, (force ? force : false));
+        if (curLang != 'russian') {
             $.bot.loadScriptRecursive('./lang/' + curLang, true, (force ? force : false));
         }
 
@@ -56,7 +56,7 @@
             i;
 
         if (string === undefined) {
-            $.log.warn('Lang string for key "' + key + '" was not found.');
+            $.log.warn('Параметр: Lang string с ключем "' + key + '" не найден!');
             return '';
         }
 
