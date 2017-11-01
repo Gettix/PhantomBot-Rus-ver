@@ -30,7 +30,7 @@
             }
             fis.close();
         } catch (e) {
-            $.log.error('Failed to open \'' + path + '\': ' + e);
+            $.log.error('Ошибка Открытия файла \'' + path + '\': ' + e);
         }
         return lines;
     }
@@ -60,7 +60,7 @@
             try {
                 org.apache.commons.io.FileUtils.moveFileToDirectory(fileO, pathO, true);
             } catch (ex) {
-                $.log.error("moveFile(" + file + ", " + path + ") failed: " + ex);
+                $.log.error("moveFile(" + file + ", " + path + ") Ошибка: " + ex);
             }
         }
     }
@@ -82,7 +82,7 @@
             }
             fos.close();
         } catch (e) {
-            $.log.error('Failed to write to \'' + path + '\': ' + e);
+            $.log.error('Ошибка Записи файла \'' + path + '\': ' + e);
         }
     }
 
@@ -133,7 +133,7 @@
             ps.println(line);
             fos.flush();
         } catch (e) {
-            $.log.error('Failed to write to \'' + path + '\': ' + e);
+            $.log.error('Ошибка Записи файла \'' + path + '\': ' + e);
         }
     }
 
@@ -147,7 +147,7 @@
             var fos = new JFileOutputStream(path, true);
             fos.close();
         } catch (e) {
-            $.log.error('Failed to touch \'' + path + '\': ' + e);
+            $.log.error('Ошибка Доступа к файлу \'' + path + '\': ' + e);		// Возможно перевод не точный
         }
     }
 
@@ -166,7 +166,7 @@
                 f.deleteOnExit();
             }
         } catch (e) {
-            $.log.error('Failed to delete \'' + path + '\': ' + e);
+            $.log.error('Ошибка Удаления файла \'' + path + '\': ' + e);
         }
     }
 
@@ -206,7 +206,7 @@
                 return ret;
             }
         } catch (e) {
-            $.log.error('Failed to search in \'' + directory + '\': ' + e);
+            $.log.error('Ошибка Поиска файла в Директории: \'' + directory + '\': ' + e);
         }
         return [];
     }

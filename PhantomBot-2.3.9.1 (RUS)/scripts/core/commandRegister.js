@@ -71,7 +71,7 @@
         }
 
         if ($.commandExists(command)) {
-            $.consoleDebug('Failed to register command as already registered: !' + command + '. (Script: ' + script + ', Original Script: ' + commandScriptTable[command] + ')');
+            $.consoleDebug('Ошибка регистрации Команды! Команда уже существует: ' + command + '. (Скрипт: ' + script + ', Оригинальный Скрипт: ' + commandScriptTable[command] + ')');
             return;
         }
 

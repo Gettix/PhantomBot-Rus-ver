@@ -72,7 +72,7 @@
      * @export $.patternDetector
      */
     function logLastLink(event) {
-        $.log.file('patternDetector', 'Matched link on message from ' + event.getSender() + ': ' + patterns.link.exec(event.getMessage())[0]);
+        $.log.file('patternDetector', 'Соответствующая ссылка на сообщение от ' + event.getSender() + ': ' + patterns.link.exec(event.getMessage())[0]);
     }
 
     /**

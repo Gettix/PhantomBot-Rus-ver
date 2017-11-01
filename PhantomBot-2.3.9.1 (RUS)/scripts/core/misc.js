@@ -142,7 +142,7 @@
                 $.session.say('/me ' + message);
             }
             if (!respond) {
-                $.consoleLn('[MUTED] ' + message);
+                $.consoleLn('[ТИХИЙ РЕЖИМ] ' + message);
             }
         }
         $.log.file('chat', '' + $.botName.toLowerCase() + ': ' + message);
@@ -168,7 +168,7 @@
                 $.session.say('/me ' + message);
             }
             if (!respond) {
-                $.consoleLn('[MUTED] ' + message);
+                $.consoleLn('[ТИХИЙ РЕЖИМ] ' + message);
             }
         }
         $.log.file('chat', '' + $.botName.toLowerCase() + ': ' + message);
@@ -314,13 +314,13 @@
                 }
             } else {
                 if (request.httpCode == 0) {
-                    $.log.error('Failed to use random.org: ' + request.exception);
+                    $.log.error('Ошибка использования random.org: ' + request.exception);
                 } else {
-                    $.log.error('Failed to use random.org: HTTP' + request.httpCode + ' ' + request.content);
+                    $.log.error('Ошибка использования random.org: HTTP' + request.httpCode + ' ' + request.content);
                 }
             }
         } catch (error) {
-            $.log.error('Failed to use random.org: ' + error);
+            $.log.error('Ошибка использования random.org: ' + error);
         }
 
         return randRange(min, max);

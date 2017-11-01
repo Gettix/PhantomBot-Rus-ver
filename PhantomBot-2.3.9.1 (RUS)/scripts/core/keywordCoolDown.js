@@ -47,7 +47,7 @@
         keyword = keyword.toLowerCase();
 
         cooldown.push({keyword: keyword, time: time});
-        $.consoleDebug('Pushed keyword ' + keyword + ' to cooldown.');
+        $.consoleDebug('Отправляем Ключевое слово/Выражение: ' + keyword + ' в Ожидание-КулДаун (CoolDown).');
     };
 
      /**

@@ -197,7 +197,7 @@
 
                         $.say($.whisperPrefix(sender) + $.lang.get('init.module.enabled', module.getModuleName()));
                     } catch (ex) {
-                        $.log.error('Unable to call initReady for enabled module (' + module.scriptName +'): ' + ex);
+                        $.log.error('Невозможно вызвать initReady для Включения Модуля (' + module.scriptName +'): ' + ex);
                     }
                 } else {
                     $.say($.whisperPrefix(sender) + $.lang.get('init.module.404'));
@@ -268,7 +268,7 @@
                             $.bot.getHook(module.scriptName, 'initReady').handler();
                         }
                     } catch (ex) {
-                        $.log.error('Unable to call initReady for enabled module (' + module.scriptName +'): ' + ex);
+                        $.log.error('Невозможно вызвать initReady для Включения Модуля (' + module.scriptName +'): ' + ex);
                     }
                 }
             }

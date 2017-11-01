@@ -191,14 +191,14 @@
             return;
         }
 
-        $.log.event('Starting Log Rotation');
+        $.log.event('Запуск Ротации Логов (сортировка)...');
         for (logDirIdx = 0; logDirIdx < logDirs.length; logDirIdx++) {
             logFiles = $.findFiles('./logs/' + logDirs[logDirIdx], 'txt');
             for (idx = 0; idx < logFiles.length; idx++) {
                 logFileDate = logFiles[idx].match(/(\d{2}-\d{2}-\d{4})/)[1];
                 date = datefmt.parse(logFileDate);
                 if (date.getTime() < checkDate) {
-                    $.log.event('Log Rotate: Deleted ./logs/' + logDirs[logDirIdx] + '/' + logFiles[idx]);
+                    $.log.event('Ротация Логов: УДАЛЕНО! ./logs/' + logDirs[logDirIdx] + '/' + logFiles[idx]);
                     $.deleteFile('./logs/' + logDirs[logDirIdx] + '/' + logFiles[idx], true);
                 }
             }
@@ -223,11 +223,13 @@
         if (message.startsWith('specialuser')) {
             return;
         }
-
+		
+		// НЕЛЬЗЯ ПЕРЕВОДИТЬ!
         if (message.indexOf('the moderators if this room') === -1) {
             logfile('private-messages', '' + sender + ': ' + message);
         }
-
+		
+		// НЕЛЬЗЯ ПЕРЕВОДИТЬ!
         if (sender.equalsIgnoreCase('jtv')) {
             if (message.equalsIgnoreCase('clearchat')) {
                 logfile('private-messages', '' + $.lang.get('console.received.clearchat'));

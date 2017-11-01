@@ -116,7 +116,7 @@
             } else if (channelData.isNull('status') && channelData.getInt('_http') == 200) {
                 return $.lang.get('common.twitch.no.status');
             }
-            $.log.error('Failed to get the current status: ' + channelData.getString('message'));
+            $.log.error('Ошибка получения текущего Названия: ' + channelData.getString('message'));
             return '';
         }
     }
@@ -140,7 +140,7 @@
             }
             
             if (!channelData.isNull('message')) {
-                $.log.error('Failed to get the current game: ' + channelData.getString('message'));
+                $.log.error('Ошибка получения текущей игры: ' + channelData.getString('message'));
             }
             return '';
         }
@@ -246,7 +246,7 @@
     function getStreamStartedAt(channelName) {
         if ($.twitchCacheReady.equals('true') && channelName.equalsIgnoreCase($.channelName)) {
             if ($.twitchcache.getStreamOnlineString === 'false') {
-                return 'Stream is offline';
+                return 'Стрим - Оффлайн!';
             }
             createdAtDate = new Date($.twitchcache.getStreamCreatedAt() + '');
             return $.dateToString(createdAtDate);
@@ -384,16 +384,16 @@
 
                 $.twitchcache.setGameTitle(http.getString('game'));
                 $.inidb.set('streamInfo', 'game', http.getString('game'));
-                $.log.event($.username.resolve(sender) + ' changed the current game to ' + http.getString('game'));
+                $.log.event($.username.resolve(sender) + ' изменил игру на ' + http.getString('game'));
                 if ($.bot.isModuleEnabled('./commands/deathctrCommand.js')) {
                     $.deathUpdateFile(game);
                 }
             } else {
-                $.log.error('Failed to change the game. The Twitch API might be having issues.');
+                $.log.error('Ошибка изменения игры! У Twitch API возможно возникли проблемы. Попробуйте еще раз.');
                 $.log.error(http.getString('message'));
             }
         } else {
-            $.log.error('Failed to change the game. Make sure you have your api oauth code set. https://phantombot.tv/oauth');
+            $.log.error('Ошибка изменения игры! Пожалуйста проверьте актуальность api oauth кода. https://phantombot.tv/oauth');
             $.log.error(http.getString('_exception') + ' ' + http.getString('_exceptionMessage'));
         }
     }
@@ -416,13 +416,13 @@
                 }
                 $.twitchcache.setStreamStatus(http.getString('status'));
                 $.inidb.set('streamInfo', 'title', http.getString('status'));
-                $.log.event(sender + ' changed the current status to ' + http.getString('status'));
+                $.log.event(sender + ' изменил название стрима на ' + http.getString('status'));
             } else {
-                $.log.error('Failed to change the status. The Twitch API might be having issues.');
+                $.log.error('Ошибка изменения Названия. Twitch API возможно возникли проблемы. Попробуйте еще раз.');
                 $.log.error(http.getString('message'));
             }
         } else {
-            $.log.error('Failed to change the status. Make sure you have your api oauth code set. https://phantombot.tv/oauth');
+            $.log.error('Ошибка изменения Названия Стрима. Пожалуйста проверьте актуальность api oauth кода. https://phantombot.tv/oauth');
             $.log.error(http.getString('_exception') + ' ' + http.getString('_exceptionMessage'));
         }
     }
@@ -444,7 +444,7 @@
             }
             $.inidb.set('streamInfo', 'communities', communities.join(', '));
         } else {
-            $.log.error('Failed to change the status. Make sure you have your api oauth code set. https://phantombot.tv/oauth');
+            $.log.error('Ошибка изменения Названия Стрима. Пожалуйста проверьте актуальность api oauth кода. https://phantombot.tv/oauth');
             $.log.error(http.getString('_exception') + ' ' + http.getString('_exceptionMessage'));
         }
     }
