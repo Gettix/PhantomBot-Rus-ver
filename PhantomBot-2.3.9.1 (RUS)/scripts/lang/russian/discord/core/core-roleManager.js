@@ -1,0 +1,10 @@
+$.lang.register('discord.rolemanager.usage', 'Используйте: !rolemanager [togglesyncpermissions / togglesyncranks / blacklist]');
+$.lang.register('discord.rolemanager.permission.sync.on', 'Разрешения бота теперь будут синхронизированы с пользователями, которые имеют свою учетную запись, связанную с ботом.');
+$.lang.register('discord.rolemanager.permission.sync.off', 'Разрешения бота больше не будут синхронизироваться.');
+$.lang.register('discord.rolemanager.ranks.sync.on', 'Группы(Роли) теперь будут синхронизированы с пользователями, которые имеют свою учетную запись, связанную с ботом.');
+$.lang.register('discord.rolemanager.ranks.sync.off', 'Группы(Роли) больше не будут синхронизироваться.');
+$.lang.register('discord.rolemanager.blacklist.usage', 'Используйте: !rolemanager blacklist [Параметр: add / remove] [Группа или Роль].');
+$.lang.register('discord.rolemanager.blacklist.add.usage', 'Используйте: !rolemanager blacklist add [Группа или Роль].');
+$.lang.register('discord.rolemanager.blacklist.add.success', 'Группа(Роль) $1 была добавлена в Blacklist!');
+$.lang.register('discord.rolemanager.blacklist.remove.usage', 'Используйте: !rolemanager blacklist remove [Группа или Роль]');
+$.lang.register('discord.rolemanager.blacklist.remove.success', 'Группа(Роль) $1 была удалена из Blacklist.');

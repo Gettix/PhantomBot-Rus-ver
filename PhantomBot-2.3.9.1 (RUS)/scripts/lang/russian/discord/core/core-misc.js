@@ -1,0 +1,10 @@
+$.lang.register('discord.misc.module.usage', 'Используйте: !module [Параметр: enable / disable / list]');
+$.lang.register('discord.misc.module.enabled', 'Модуль: $1 успешно Включен!');
+$.lang.register('discord.misc.module.disabled', 'Модуль: $1 успешно Выключен!');
+$.lang.register('discord.misc.module.list', 'Discord список Модулей: \r\n $1');
+$.lang.register('discord.misc.module.404', 'Такой Модуль не существует: $1');
+$.lang.register('discord.misc.game.set.usage', 'Используйте: !setgame [Название Игры]');
+$.lang.register('discord.misc.game.set', 'Для Стрим-Бота была установлена Игра: $1');
+$.lang.register('discord.misc.game.stream.set.usage', 'Используйте: !setstream [twitch url] [Название Игры]');
+$.lang.register('discord.misc.game.stream.set', 'Стрим-Бот изменен на: $1 и Игра на: $2');
+$.lang.register('discord.misc.game.removed', 'Игра для Стрим-Бота была удалена.');
