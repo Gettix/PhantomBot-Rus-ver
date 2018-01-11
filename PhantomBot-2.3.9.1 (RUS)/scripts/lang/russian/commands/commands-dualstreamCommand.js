@@ -1,0 +1,13 @@
+$.lang.register('dualstreamcommand.usage', 'Используйте: !multi [Параметр: set / clear / timer / timerinterval]');
+$.lang.register('dualstreamcommand.set.usage', 'Используйте: !multi set [Канал(ы)]');
+$.lang.register('dualstreamcommand.link.set', 'Мульти-Стрим готов! - http://multistre.am/$1');
+$.lang.register('dualstreamcommand.clear', 'Мульти-Стрим очищен и отключен.');
+$.lang.register('dualstreamcommand.timer.usage', 'Используйте: !multi timer [Параметр: on / off]');
+$.lang.register('dualstreamcommand.timer.enabled', 'Мульти-Таймер включен.');
+$.lang.register('dualstreamcommand.timer.disabled', 'Мульти-Таймер отключен.');
+$.lang.register('dualstreamcommand.timerinterval.usage', 'Используйте: !multi timerinterval (время в минутах)');
+$.lang.register('dualstreamcommand.timerinterval.err', 'Минимальное значение времени 5 минут.');
+$.lang.register('dualstreamcommand.timerinterval.set', 'Интервал Таймера установлен на $1 минут!');
+$.lang.register('dualstreamcommand.link', 'http://multistre.am/');
+$.lang.register('dualstreamcommand.req.usage', 'Используйте: !multi reqmessage (Кол-во сообщений)');
+$.lang.register('dualstreamcommand.reqmessages.set', 'Кол-во сообщений изменено на $1 сообщений!');
